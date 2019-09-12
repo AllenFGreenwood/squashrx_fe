@@ -22,15 +22,15 @@ router.get('/log', function (req, res, next) {
             var lastScan = db.collection('LastScan');
             lastScan.find().limit(1).toArray((err, last) => {
                 //let lastTime = new Date(last[0]['ab_creation_time_window_from']);
-                let lastTime = moment(last[0]['ab_creation_time_window_from']).tz('America/New_York').format('ha z');
+                let lastTime = moment(last[0]['ab_creation_time_window_from']).tz('America/New_York').format('ha z'));
 
-                //lastTime = fifteen_min_early_nyc.toISOString();
-                let lastDb = last[0]['ab_creation_time_window_from'];
+            //lastTime = fifteen_min_early_nyc.toISOString();
+            let lastDb = last[0]['ab_creation_time_window_from'];
 
-                res.render('log', { recent, lastTime, lastDb });
-            });
+            res.render('log', { recent, lastTime, lastDb });
         });
     });
+});
 });
 // --------------------------------------------------
 
