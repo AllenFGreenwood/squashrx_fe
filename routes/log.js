@@ -19,6 +19,10 @@ router.get('/log', function (req, res, next) {
         //app.locals.log = log;
 
         log.find().sort({ "log_created": -1 }).limit(10).toArray((err, recent) => {
+            for (index = 0; index < recent.length; index++) {
+                let startTime = moment(recent[index]['ab_res_start_time']).tz('America/New_York');
+                recent[index]['ab_res_start_time'] = startTime.format('YYYY-MM-DD HH:mm:ss');
+            }
             var lastScan = db.collection('LastScan');
             lastScan.find().limit(1).toArray((err, last) => {
                 //let lastTime = new Date(last[0]['ab_creation_time_window_from']);
