@@ -1,0 +1,9 @@
+node_modules
+
+\.vs/config/applicationhost\.config
+
+\.vs/slnx\.sqlite
+
+\.vs/user-profiles-master/v15/\.suo
+
+\.vs/VSWorkspaceState\.json
