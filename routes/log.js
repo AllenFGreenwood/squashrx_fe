@@ -30,8 +30,8 @@ router.get('/log', function (req, res, next) {
             var lastScan = db.collection('LastScan');
             lastScan.find().limit(1).toArray((err, last) => {
                 //let lastTime = new Date(last[0]['ab_creation_time_window_from']);
-                let lastTime = moment(last[0]['ab_creation_time_window_from']).tz('America/New_York');
-                lastTime = lastTime.format('YYYY-MM-DD HH:mm:ss');
+                let lastTime = new Date(moment(last[0]['ab_creation_time_window_from']).tz('America/New_York')).toString();
+                //lastTime = lastTime.format('YYYY-MM-DD HH:mm:ss');
 
                 //lastTime = fifteen_min_early_nyc.toISOString();
                 let lastDb = last[0]['ab_creation_time_window_from'];
