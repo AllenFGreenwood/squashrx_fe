@@ -23,7 +23,7 @@ router.get('/log', function (req, res, next) {
                 let startTime = new Date(moment(recent[index]['ab_res_start_time']).tz('America/New_York'));
                 recent[index]['ab_res_start_time'] = startTime;//.format('YYYY-MM-DD HH:mm:ss').toString();
                 let endTime = moment(recent[index]['ab_res_end_time']).tz('America/New_York');
-                recent[index]['ab_res_end_time'] = endTime.format('YYYY-MM-DD HH:mm:ss').toString();
+                recent[index]['ab_res_end_time'] = endTime;//.format('YYYY-MM-DD HH:mm:ss').toString();
             }
             var lastScan = db.collection('LastScan');
             lastScan.find().limit(1).toArray((err, last) => {
