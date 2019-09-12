@@ -22,7 +22,7 @@ router.get('/log', function (req, res, next) {
             var lastScan = db.collection('LastScan');
             lastScan.find().limit(1).toArray((err, last) => {
                 //let lastTime = new Date(last[0]['ab_creation_time_window_from']);
-                let lastTime = new Date(moment(last[0]['ab_creation_time_window_from']).tz('America/New_York')).toDateString();
+                let lastTime = new Date(moment(last[0]['ab_creation_time_window_from']).tz('America/New_York'));
 
                 //lastTime = fifteen_min_early_nyc.toISOString();
                 let lastDb = last[0]['ab_creation_time_window_from'];
