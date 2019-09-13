@@ -18,6 +18,7 @@ const flash = require('connect-flash');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var logRouter = require('./routes/log');
+var courtsRouter = require('./routes/courts');
 
 // Add new routes
 // --------------------------------------------------
@@ -109,6 +110,8 @@ app.use((req, res, next) => {
 app.use('/', indexRouter);
 app.use('/', logRouter);
 app.use('/users', usersRouter);
+app.use('/courts', courtsRouter);
+
 
 // Add new routes
 // --------------------------------------------------

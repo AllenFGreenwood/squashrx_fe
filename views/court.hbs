@@ -1,13 +1,26 @@
-<h2>Edit your profile</h2>
-<form action="/users" method="POST">
-    <div class="form-group">
-        <label for="name">Name:</label>
-        <input type="text" class="form-control" name="name" id="name" value="{{ name }}">
+<h2>Update Court Name </h2>
+
+<div>
+    <label>Current Court Name:</label>
+    <label> {{ court_name }} </label>
+</div>
+
+<form action="/courts" method="POST">
+    <div>
+        <label for="name">Enter New Court Name (must be unique):</label>
+        <input type="text" class="form-control" name="new_court_name" id="new_court_name" width="30" style="width:200px">
+        <input type="hidden" class="form-control" name="court_name" id="court_name" value="{{ court_name }}">
     </div>
-    <div class="form-group">
-        <label for="name">Password:</label>
-        <input type="text" class="form-control" name="password" id="password">
-    </div>
+
     <button class="btn btn-primary">Update</button>
 </form>
-<p><a href="/users/{{username}}" target="_blank">View your profile</a></p>
+<div>
+    <label>Previous Court Name:</label>
+    <label> {{ last_court_name }} </label>
+</div>
+<p class="text-center">
+    <a href="/courts">Cancel</a> |
+    <a href="/courts">View Courts</a> |
+    <a href="/log">View Recent Activity</a> |
+    <a href="/auth/logout">Logout</a>
+</p>

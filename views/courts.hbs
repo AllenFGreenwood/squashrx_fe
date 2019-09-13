@@ -1,0 +1,18 @@
+<h2>SquashRx Courts</h2>
+<div>
+    Click on Court to update the name.
+</div>
+<p></p>
+<div>
+    <ul>
+        {{#each results}}
+
+        <li>
+            <a href="/courts/{{court_name_escaped}}">{{ court_name }}</a> | RL Id: {{ remote_lock_id }} | Type: {{ remote_lock_type }}
+            {{/each}}
+    </ul>
+</div>
+<p class="text-center">
+    <a href="/log">View Recent Activity</a> |
+    <a href="/auth/logout">Logout</a>
+</p>
