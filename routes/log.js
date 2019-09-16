@@ -49,7 +49,7 @@ router.get('/log', function (req, res, next) {
             lastScan.find().limit(1).toArray((err, last) => {
                 //let lastTime = new Date(last[0]['ab_creation_time_window_from']);
 
-                milli = Date.parse(recent[index]['ab_creation_time_window_from']);
+                milli = Date.parse(last[0]['ab_creation_time_window_from']);
                 parsed = new Date(milli);
 
                 let lastTime = parsed.toLocaleString("en-US", { timeZone: "America/New_York" });
