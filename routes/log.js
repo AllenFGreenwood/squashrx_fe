@@ -22,7 +22,7 @@ router.get('/log', function (req, res, next) {
             for (index = 0; index < recent.length; index++) {
                 let startTime = new Date(moment(recent[index]['ab_res_start_time']).tz('America/New_York'));
                 recent[index]['ab_res_start_time'] = startTime;//.format('YYYY-MM-DD HH:mm:ss').toString();
-                recent[index]['abresstarttime'] = startTime.toDateString() + " " + startTime.toTimeString();
+                recent[index]['abresstarttime'] = startTime.toDateString() + "x" + startTime.toTimeString();
                 //recent[index]['abresstarttime'] = recent[index]['abresstarttime'].replace(/+0000 (Greenwich Mean Time)/, '');
                 let endTime = new Date(moment(recent[index]['ab_res_end_time']).tz('America/New_York'));
                 recent[index]['ab_res_end_time'] = endTime;//.format('YYYY-MM-DD HH:mm:ss').toString();   
