@@ -20,9 +20,12 @@ router.get('/log', function (req, res, next) {
 
         log.find().sort({ "log_created": -1 }).limit(10).toArray((err, recent) => {
             for (index = 0; index < recent.length; index++) {
-                let startTime = new Date(moment(recent[index]['ab_res_start_time']).tz('America/New_York'));
-                recent[index]['ab_res_start_time'] = startTime;//.format('YYYY-MM-DD HH:mm:ss').toString();
-                recent[index]['abresstarttime'] = startTime.toDateString() + "x" + startTime.toTimeString();
+                var milli = Date.parse(recent[index]['ab_res_start_time']);
+                var parsed = new Date(milli);
+                //var dateString = parsed.toLocaleString("en-US", { timeZone: "America/New_York" });
+                //let startTime = new Date(moment(recent[index]['ab_res_start_time']).tz('America/New_York'));
+                //recent[index]['ab_res_start_time'] = startTime;//.format('YYYY-MM-DD HH:mm:ss').toString();
+                recent[index]['abresstarttime'] = parsed.toLocaleString("en-US", { timeZone: "America/New_York" });
                 //recent[index]['abresstarttime'] = recent[index]['abresstarttime'].replace(/+0000 (Greenwich Mean Time)/, '');
                 let endTime = new Date(moment(recent[index]['ab_res_end_time']).tz('America/New_York'));
                 recent[index]['ab_res_end_time'] = endTime;//.format('YYYY-MM-DD HH:mm:ss').toString();   
