@@ -3,18 +3,25 @@
 
 <head>
     <meta http-equiv="refresh" content="30">
+
+    <script>
+    var strDateTime = "{{ lastTime }}";
+    var myDate = new Date(strDateTime);
+    var d = myDate.toLocaleString();
+    </script>
+
 </head>
+
+
+
+
 <h2>Last Advantage Booking Scan Performed</h2>
 <ul>
     <li>
-        Last Scan: {{ lastTime }}
+        Last Scan: {{ lastTime }} {{d}}
 </ul>
 
-<script>
-    var strDateTime = "{{ lastTime }}";
-    var myDate = new Date(strDateTime);
-    alert(myDate.toLocaleString());
-</script>
+
 
 <h2>Last Reservations Processed</h2>
 <ul>
