@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const MongoClient = require('mongodb').MongoClient;
 const moment = require('moment-timezone');
-//var helpers = require('handlebars-helpers')();
+var helpers = require('handlebars-helpers')();
 // Create custom homepage
 // --------------------------------------------------
 router.get('/log', function (req, res, next) {
@@ -20,7 +20,7 @@ router.get('/log', function (req, res, next) {
 
         log.find().sort({ "log_created": -1 }).limit(10).toArray((err, recent) => {
             for (index = 0; index < recent.length; index++) {
-                let startTime = moment(recent[index]['ab_res_start_time']).tz('America/New_York');
+                let startTime = new Date(moment(recent[index]['ab_res_start_time']).tz('America/New_York'));
                 recent[index]['ab_res_start_time'] = startTime;//.format('YYYY-MM-DD HH:mm:ss').toString();
                 let endTime = new Date(moment(recent[index]['ab_res_end_time']).tz('America/New_York'));
                 recent[index]['ab_res_end_time'] = endTime;//.format('YYYY-MM-DD HH:mm:ss').toString();                
