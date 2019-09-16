@@ -30,7 +30,7 @@ router.get('/log', function (req, res, next) {
                 //recent[index]['abresendtime'] = recent[index]['abresendtime'].replace(/+0000 (Greenwich Mean Time)/, '');
                 let madeTime = new Date(moment(recent[index]['ab_res_creation_time']).tz('America/New_York'));
                 recent[index]['ab_res_creation_time'] = madeTime;//.format('YYYY-MM-DD HH:mm:ss').toString();
-                recent[index]['abresendtime'] = madeTime.toDateString() + " " + madeTime.toLocaleTimeString();
+                recent[index]['abrescreationtime'] = madeTime.toDateString() + " " + madeTime.toLocaleTimeString();
                 //recent[index]['abrescreationttime'] = 
             }
             var lastScan = db.collection('LastScan');
@@ -42,9 +42,9 @@ router.get('/log', function (req, res, next) {
                 //lastTime = lastTime.format('YYYY-MM-DD HH:mm:ss');
 
                 //lastTime = fifteen_min_early_nyc.toISOString();
-                let lastDb = last[0]['ab_creation_time_window_from'];
+                //let lastDb = last[0]['ab_creation_time_window_from'];
 
-                res.render('log', { recent, lastTime, lastDb });
+                res.render('log', { recent, lastTime });
             });
         });
     });
