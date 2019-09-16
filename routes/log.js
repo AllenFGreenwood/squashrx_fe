@@ -52,7 +52,7 @@ router.get('/log', function (req, res, next) {
                 milli = Date.parse(recent[index]['ab_creation_time_window_from']);
                 parsed = new Date(milli);
 
-                let lastTime = parsed.toLocaleString("en-US", { timeZone: "America/New_York" });; //.toLocaleString('en-US', { timeZone: 'America/Los_Angeles' });
+                let lastTime = parsed.toLocaleString("en-US", { timeZone: "America/New_York" }); //.toLocaleString('en-US', { timeZone: 'America/Los_Angeles' });
 
                 //let lastTime = new Date(moment(last[0]['ab_creation_time_window_from']).tz('America/New_York')).toString();
                 //lastTime = lastTime.toString();
