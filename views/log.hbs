@@ -7,6 +7,10 @@
         Last Scan: {{ lastTime }}
 </ul>
 
+
+{{moment lastTime utc=true}}
+{{moment lastTime local=true}}
+
 <h2>Last Reservations Processed</h2>
 <ul>
     {{#each recent}}
