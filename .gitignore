@@ -11,3 +11,5 @@ node_modules
 \.vs/squashrx_fe/v15/\.suo
 
 package-lock.json
+
+package.json
