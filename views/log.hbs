@@ -1,19 +1,20 @@
 <head>
     <meta http-equiv="refresh" content="30">
 </head>
-
-<h2>Last Reservations Processed</h2>
-<ul>
-    {{#each recent}}
-    <li>
-        {{ab_guest_name }} | ResId: {{ ab_res_id }} | Court: {{ ab_court_name }} <br /> Start: {{ ab_res_start_time }} | End: {{ ab_res_end_time }} | Created: {{ ab_res_creation_time}}
-        {{/each}}
-</ul>
 <h2>Last Advantage Booking Scan Performed</h2>
 <ul>
     <li>
         Last Scan: {{ lastTime }}
 </ul>
+
+<h2>Last Reservations Processed</h2>
+<ul>
+    {{#each recent}}
+    <li>
+        {{ab_guest_name }} | ResId: {{ ab_res_id }} | Court: {{ ab_court_name }} <br /> Start: {{ ab_res_start_time }} | End: {{ ab_res_end_time }} <br /> Created: {{ ab_res_creation_time}}
+        {{/each}}
+</ul>
+
 <p class="text-center">
     <a href="/courts">View Courts</a> |
     <a href="/auth/logout">Logout</a>
