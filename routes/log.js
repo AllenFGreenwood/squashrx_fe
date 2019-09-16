@@ -48,8 +48,12 @@ router.get('/log', function (req, res, next) {
             var lastScan = db.collection('LastScan');
             lastScan.find().limit(1).toArray((err, last) => {
                 //let lastTime = new Date(last[0]['ab_creation_time_window_from']);
-                let lastTime = new Date(moment(last[0]['ab_creation_time_window_from']).tz('America/New_York')).toString();
-                lastTime = lastTime.toString();
+
+                milli = Date.parse(recent[index]['ab_creation_time_window_from']);
+                parsed = new Date(milli);
+
+                let lastTime = parsed.toLocaleString("en-US", { timeZone: "America/New_York" });
+                //lastTime = lastTime.toString();
                 //lastTime = lastTime.replace(/+0000 (Greenwich Mean Time)/, '');
                 //lastTime = lastTime.format('YYYY-MM-DD HH:mm:ss');
 
