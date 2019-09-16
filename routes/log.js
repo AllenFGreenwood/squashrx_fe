@@ -25,7 +25,7 @@ router.get('/log', function (req, res, next) {
                 let endTime = new Date(moment(recent[index]['ab_res_end_time']).tz('America/New_York'));
                 recent[index]['ab_res_end_time'] = endTime;//.format('YYYY-MM-DD HH:mm:ss').toString();                
                 let madeTime = new Date(moment(recent[index]['ab_res_creation_time']).tz('America/New_York')).toTimeString();
-                recent[index]['ab_res_creation_time'] = madeTime;//.format('YYYY-MM-DD HH:mm:ss').toString();
+                recent[index]['ab_res_creation_time'] = madeTime.replace(/GMT+.$/, ''); //.format('YYYY-MM-DD HH:mm:ss').toString();
             }
             var lastScan = db.collection('LastScan');
             lastScan.find().limit(1).toArray((err, last) => {
