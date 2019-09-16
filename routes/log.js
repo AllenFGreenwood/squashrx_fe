@@ -42,7 +42,7 @@ router.get('/log', function (req, res, next) {
                 milli = Date.parse(recent[index]['ab_res_creation_time']);
                 parsed = new Date(milli);
                 //recent[index]['ab_res_creation_time'] = madeTime;//.format('YYYY-MM-DD HH:mm:ss').toString();
-                recent[index]['abrescreationttime'] = parsed.toLocaleString("en-US", { timeZone: "America/New_York" });  //.toLocaleString('en-US', { timeZone: 'America/Los_Angeles' });
+                recent[index]['abrescreationtime'] = parsed.toLocaleString("en-US", { timeZone: "America/New_York" });  //.toLocaleString('en-US', { timeZone: 'America/Los_Angeles' });
                 //recent[index]['abrescreationttime'] = 
             }
             var lastScan = db.collection('LastScan');
