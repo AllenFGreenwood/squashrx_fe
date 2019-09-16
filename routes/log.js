@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const MongoClient = require('mongodb').MongoClient;
 const moment = require('moment-timezone');
-
+//var helpers = require('handlebars-helpers')();
 // Create custom homepage
 // --------------------------------------------------
 router.get('/log', function (req, res, next) {

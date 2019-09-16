@@ -16,6 +16,7 @@
     "handlebars.moment": "^1.0.4",
     "hbs": "~4.0.4",
     "http-errors": "~1.6.3",
+    "moment": "^2.24.0",
     "moment-timezone": "^0.5.26",
     "mongodb": "^3.3.0-beta2",
     "morgan": "~1.9.1",
