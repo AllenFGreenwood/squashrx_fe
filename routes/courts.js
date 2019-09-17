@@ -75,7 +75,7 @@ router.post('/', (req, res, next) => {
         res.redirect('/auth/login');
     }
     var court_name = req.body.court_name;
-
+    var remote_lock_minutes_before = req.body.remote_lock_minutes_before;
     var new_court_name = req.body.new_court_name.trim();
     if (new_court_name === '') {
         return res.redirect('/courts');
