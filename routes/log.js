@@ -25,14 +25,14 @@ router.get('/log', function (req, res, next) {
                 //var dateString = parsed.toLocaleString("en-US", { timeZone: "America/New_York" });
                 //let startTime = new Date(moment(recent[index]['ab_res_start_time']).tz('America/New_York'));
                 //recent[index]['ab_res_start_time'] = startTime;//.format('YYYY-MM-DD HH:mm:ss').toString();
-                recent[index]['abresstarttime'] = parsed.toLocaleString("en-US", { timeZone: "America/New_York" });
+                recent[index]['abresstarttime'] = parsed.toLocaleString("en-US", { timeZone: "America/New_York" }).replace(/:\d{2}\s/, ' ');
                 //recent[index]['abresstarttime'] = recent[index]['abresstarttime'].replace(/+0000 (Greenwich Mean Time)/, '');
                 //let endTime = new Date(moment(recent[index]['ab_res_end_time']).tz('America/New_York'));
                 //recent[index]['ab_res_end_time'] = endTime;//.format('YYYY-MM-DD HH:mm:ss').toString();   
                 milli = Date.parse(recent[index]['ab_res_end_time']);
                 parsed = new Date(milli);
 
-                recent[index]['abresendtime'] = parsed.toLocaleString("en-US", { timeZone: "America/New_York" }); //.toLocaleString('en-US', { timeZone: 'America/Los_Angeles' });
+                recent[index]['abresendtime'] = parsed.toLocaleString("en-US", { timeZone: "America/New_York" }).replace(/:\d{2}\s/, ' '); //.toLocaleString('en-US', { timeZone: 'America/Los_Angeles' });
                 //recent[index]['abresendtime'] = recent[index]['abresendtime'].replace(/+0000 (Greenwich Mean Time)/, '');
                 //let madeTime = new Date(moment(recent[index]['ab_res_creation_time']).tz('America/New_York'));
 

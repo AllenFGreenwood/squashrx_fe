@@ -9,6 +9,7 @@
     <div>
         <label for="name">Enter New Court Name (must be unique):</label>
         <input type="text" class="form-control" name="new_court_name" id="new_court_name" width="30" style="width:200px" value="{{ court_name }}">
+        <label for="name">Minutes before reservation for lock access:</label>
         <input type="text" class="form-control" name="remote_lock_minutes_before" id="remote_lock_minutes_before" width="30" style="width:200px" value="{{remote_lock_minutes_before}}">
         <input type="hidden" class="form-control" name="court_name" id="court_name" value="{{ court_name }}">
     </div>
