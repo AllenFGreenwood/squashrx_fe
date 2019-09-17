@@ -90,9 +90,9 @@ router.post('/', (req, res, next) => {
         court.updateOne({ "court_name": court_name }, { $set: { "court_name": new_court_name, "last_court_name": court_name, "remote_lock_minutes_before": remote_lock_minutes_before } }, (err) => {
 
         });
-        client.close();
-        res.redirect('/courts');
 
+        res.redirect('/courts');
+        client.close();
     });
 });
 // --------------------------------------------------
