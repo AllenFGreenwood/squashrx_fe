@@ -8,7 +8,7 @@
         {{#each results}}
 
         <li>
-            <a href="/courts/{{court_name_escaped}}">{{ court_name }}</a> | RL Id: {{ remote_lock_id }} | Type: {{ remote_lock_type }}
+            <a href="/courts/{{court_name_escaped}}">{{ court_name }}</a> | Min Before Res: {{ remote_lock_minutes_before }} | RL Id: {{ remote_lock_id }} | Type: {{ remote_lock_type }}
             {{/each}}
     </ul>
 </div>

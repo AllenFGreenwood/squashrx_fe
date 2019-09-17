@@ -59,7 +59,8 @@ router.get('/:courtname', (req, res, next) => {
             //    }
             let lock_id = result[0]['remote_lock_id'];
             let last_court_name = result[0]['last_court_name'];
-            res.render('court', { court_name, lock_id, last_court_name });
+            let remote_lock_minutes_before = result[0]['remote_lock_minutes_before'];
+            res.render('court', { court_name, lock_id, last_court_name, remote_lock_minutes_before });
             //});
         });
     });
@@ -86,7 +87,7 @@ router.post('/', (req, res, next) => {
         const db = client.db('LockDb');
         const court = db.collection('Courts');
         //app.locals.log = log;
-        court.updateOne({ "court_name": court_name }, { $set: { "court_name": new_court_name, "last_court_name": court_name } }, (err) => {
+        court.updateOne({ "court_name": court_name }, { $set: { "court_name": new_court_name, "last_court_name": court_name, "remote_lock_minutes_before": remote_lock_minutes_before } }, (err) => {
 
         });
         client.close();
