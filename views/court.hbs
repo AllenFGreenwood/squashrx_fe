@@ -1,4 +1,4 @@
-<h2>Update Court Name </h2>
+<h2>Update Court </h2>
 
 <div>
     <label>Current Court Name:</label>
@@ -7,6 +7,7 @@
 
 <form action="/courts" method="POST">
     <div>
+        <label for="name">*Note: Update Name here first, before updating in Advantage Booking. </label>
         <label for="name">Enter New Court Name (must be unique):</label>
         <input type="text" class="form-control" name="new_court_name" id="new_court_name" width="30" style="width:200px" value="{{ court_name }}">
         <label for="name">Minutes before reservation for lock access:</label>

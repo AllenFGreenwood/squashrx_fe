@@ -22,28 +22,19 @@ router.get('/log', function (req, res, next) {
             for (index = 0; index < recent.length; index++) {
                 var milli = Date.parse(recent[index]['ab_res_start_time']);
                 var parsed = new Date(milli);
-                //var dateString = parsed.toLocaleString("en-US", { timeZone: "America/New_York" });
-                //let startTime = new Date(moment(recent[index]['ab_res_start_time']).tz('America/New_York'));
-                //recent[index]['ab_res_start_time'] = startTime;//.format('YYYY-MM-DD HH:mm:ss').toString();
+
                 recent[index]['abresstarttime'] = parsed.toLocaleString("en-US", { timeZone: "America/New_York" }).replace(/:\d{2}\s/, ' ');
-                //recent[index]['abresstarttime'] = recent[index]['abresstarttime'].replace(/+0000 (Greenwich Mean Time)/, '');
-                //let endTime = new Date(moment(recent[index]['ab_res_end_time']).tz('America/New_York'));
-                //recent[index]['ab_res_end_time'] = endTime;//.format('YYYY-MM-DD HH:mm:ss').toString();   
+
                 milli = Date.parse(recent[index]['ab_res_end_time']);
                 parsed = new Date(milli);
 
-                recent[index]['abresendtime'] = parsed.toLocaleString("en-US", { timeZone: "America/New_York" }).replace(/:\d{2}\s/, ' '); //.toLocaleString('en-US', { timeZone: 'America/Los_Angeles' });
-                //recent[index]['abresendtime'] = recent[index]['abresendtime'].replace(/+0000 (Greenwich Mean Time)/, '');
-                //let madeTime = new Date(moment(recent[index]['ab_res_creation_time']).tz('America/New_York'));
-
-
-
+                recent[index]['abresendtime'] = parsed.toLocaleString("en-US", { timeZone: "America/New_York" }).replace(/:\d{2}\s/, ' ');
 
                 milli = Date.parse(recent[index]['ab_res_creation_time']);
                 parsed = new Date(milli);
-                //recent[index]['ab_res_creation_time'] = madeTime;//.format('YYYY-MM-DD HH:mm:ss').toString();
-                recent[index]['abrescreationtime'] = parsed.toLocaleString("en-US", { timeZone: "America/New_York" });  //.toLocaleString('en-US', { timeZone: 'America/Los_Angeles' });
-                //recent[index]['abrescreationttime'] = 
+
+                recent[index]['abrescreationtime'] = parsed.toLocaleString("en-US", { timeZone: "America/New_York" });
+
             }
             var lastScan = db.collection('LastScan');
             lastScan.find().limit(1).toArray((err, last) => {
@@ -53,11 +44,7 @@ router.get('/log', function (req, res, next) {
                 parsed = new Date(milli);
 
                 let lastTime = parsed.toLocaleString("en-US", { timeZone: "America/New_York" });
-                //lastTime = lastTime.toString();
-                //lastTime = lastTime.replace(/+0000 (Greenwich Mean Time)/, '');
-                //lastTime = lastTime.format('YYYY-MM-DD HH:mm:ss');
 
-                //lastTime = fifteen_min_early_nyc.toISOString();
                 let lastDb = last[0]['ab_creation_time_window_from'];
 
                 res.render('log', { recent, lastTime, lastDb });
